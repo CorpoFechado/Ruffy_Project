@@ -1,20 +1,31 @@
-import json
+import csv
 from datetime import datetime
 
-NOTES_FILE = "notes.json"
+NOTES_FILE = "notes.csv"
 
 def load_notes():
-    """Load notes from the JSON file."""
+    """Load notes from the CSV file."""
+    notes = {}
     try:
-        with open(NOTES_FILE, "r") as f:
-            return json.load(f)
+        with open(NOTES_FILE, "r", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                notes[row["title"]] = {
+                    "content": row["content"],
+                    "date": row["date"]
+                }
     except FileNotFoundError:
-        return {}
+        pass
+    return notes
 
 def save_notes(notes):
-    """Save notes to the JSON file."""
-    with open(NOTES_FILE, "w") as f:
-        json.dump(notes, f, indent=4)
+    """Save notes to the CSV file."""
+    with open(NOTES_FILE, "w", newline="") as f:
+        fieldnames = ["title", "content", "date"]
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for title, note in notes.items():
+            writer.writerow({"title": title, "content": note["content"], "date": note["date"]})
 
 def list_notes(notes, show_index=True):
     """List all notes with their titles and creation dates."""
@@ -55,7 +66,16 @@ def add_note(notes):
     if title in notes:
         print("A note with this title already exists. Please choose a different title.")
         return
-    content = input("Enter the content of the note: ").strip()
+    
+    print("Enter the content of the note. Press Enter on a blank line to finish.")
+    content_lines = []
+    while True:
+        line = input(" > ")
+        if not line.strip():
+            break
+        content_lines.append(line)
+    
+    content = "\n".join(content_lines)
     notes[title] = {
         "content": content,
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
