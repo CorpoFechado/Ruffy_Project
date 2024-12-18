@@ -1,7 +1,7 @@
 title,content,date,tags,pinned
 NON-NEGOTIABLES,"1. No Excuses
 2. Pursuit OF excellence
-3. Persevere",2024-12-12 17:50:39,Motivation,True
+3. Persevere",2024-12-12 17:50:39,Motivation,False
 My Top 5 Songs rn,"5. Steaaam
 4. Rock Bottom
 3. Kagefumi
@@ -12,3 +12,12 @@ Let's go !!",2024-12-12 12:17:37,Thoughts,False
 Grocery,"1. Apple
 2. Mango
 3. Banana",2024-12-12 17:55:58,List,False
+PENDINGS,"These are all the things I need to accomplish for this semester
+1. ACP Project (Python)
+2. OOP Project (java)
+3. Discrete Math Project
+4. DBMS Project
+5. Networking Project",2024-12-18 15:14:36,School,False
+ACP Project,Make a Program/System in Python,2024-12-18 15:17:21,School,False
+OOP Project,Make an Optical Clinic System,2024-12-18 15:17:56,School,False
+DBMS Project,Make a database with phpMyAdmin,2024-12-18 15:44:49,School,False

@@ -197,7 +197,7 @@ def delete_note(notes):
     confirm = input(f"Are you sure you want to delete the note '{title}'? (y/n): ").lower()
     if confirm == 'y':
         del notes[title]
-        save_notes(notes)
+        save_notes(notes, pinned_note)
         print(f"Note '{title}' deleted successfully.\n")
     else:
         print("Deletion cancelled.\n")
