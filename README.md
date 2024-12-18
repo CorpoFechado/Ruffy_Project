@@ -29,3 +29,6 @@ The app is run through the terminal and provides a clear menu interface for easy
 10. **Remove Pinned Note**: Unpin a note if you no longer want it to be featured.
 
 11. **Choose Sort Preference**: Select the sorting order for your notes (alphabetically or by date). Your preference is saved for future sessions.
+
+## Video Link
+https://youtu.be/YPMWSmg_-5U
